@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-surface: 210 20% 97%;
+  --color-card: 0 0% 100%;
+  --color-muted: 215 14% 35%;
+  --color-foreground: 220 32% 12%;
+  --color-brand: 215 72% 21%;
+  --color-brand-foreground: 210 20% 98%;
+  --color-accent: 47 98% 52%;
+  --color-accent-soft: 48 100% 93%;
+  --color-stroke: 214 16% 84%;
+  --color-shadow: 220 30% 12%;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 10rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 8.5rem;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: hsl(var(--color-surface));
+  color: hsl(var(--color-foreground));
+  font-family: "Inter", "Manrope", "Segoe UI", sans-serif;
+  background-image:
+    linear-gradient(to right, hsl(var(--color-stroke) / 0.28) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--color-stroke) / 0.28) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", "Manrope", "Segoe UI", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid hsl(var(--color-accent));
+  outline-offset: 2px;
+}
+
+::selection {
+  background: hsl(var(--color-accent) / 0.3);
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center border-2 border-foreground bg-accent px-6 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-foreground transition hover:brightness-95;
+    box-shadow: 6px 6px 0 0 hsl(var(--color-foreground));
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border-2 border-foreground bg-card px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-foreground transition hover:bg-surface;
+    box-shadow: 6px 6px 0 0 hsl(var(--color-stroke));
+  }
+
+  .block-panel {
+    @apply border-2 border-foreground bg-card;
+    --hatch-offset: 10px;
+    --hatch-line: hsl(var(--color-foreground));
+    --hatch-bg: hsl(var(--color-stroke));
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .block-panel {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .block-panel::before,
+  .block-panel::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: var(--hatch-bg);
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        var(--hatch-line) 0 1px,
+        transparent 1px 6px
+      );
+    pointer-events: none;
+  }
+
+  .block-panel::before {
+    left: var(--hatch-offset);
+    right: calc(var(--hatch-offset) * -1);
+    bottom: calc(var(--hatch-offset) * -1);
+    height: var(--hatch-offset);
+    border: 2px solid hsl(var(--color-foreground));
+    border-top: 0;
+  }
+
+  .block-panel::after {
+    top: var(--hatch-offset);
+    bottom: calc(var(--hatch-offset) * -1);
+    right: calc(var(--hatch-offset) * -1);
+    width: var(--hatch-offset);
+    border: 2px solid hsl(var(--color-foreground));
+    border-left: 0;
+  }
+}
