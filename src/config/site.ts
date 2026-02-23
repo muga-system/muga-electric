@@ -18,7 +18,6 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;
 export const siteConfig = {
   siteMode,
   isDemoSite: siteMode === "demo",
-  isIndexable: siteMode === "production",
   brand: "EVF",
   siteName: "MUGA Electric Demo",
   role: "Electricista matriculado",

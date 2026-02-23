@@ -28,9 +28,9 @@ NEXT_PUBLIC_SITE_MODE=demo # demo | preview | production
 NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
 ```
 
-- `demo`: mantiene los modales de aviso y bloquea indexación (`noindex` + `robots`).
-- `preview`: desactiva modales demo y bloquea indexación.
-- `production`: desactiva modales demo y habilita indexación/sitemap.
+- `demo`: mantiene los modales de aviso (sitio de muestra/portfolio).
+- `preview`: desactiva modales demo.
+- `production`: desactiva modales demo.
 
 ## Documentación
 
