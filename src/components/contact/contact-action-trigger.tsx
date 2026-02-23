@@ -4,6 +4,7 @@ import type { ButtonHTMLAttributes, MouseEventHandler, PropsWithChildren } from 
 import { startTransition } from "react";
 
 import { useContactNotice } from "@/components/contact/contact-notice-provider";
+import { siteConfig } from "@/config/site";
 
 type ContactActionTriggerProps = PropsWithChildren<{
   channel: "call" | "whatsapp";
@@ -34,6 +35,18 @@ export function ContactActionTrigger({
     }
 
     onBeforeOpen?.();
+
+    if (!siteConfig.isDemoSite) {
+      if (typeof window !== "undefined") {
+        if (target === "_blank") {
+          window.open(href, "_blank", "noopener,noreferrer");
+        } else {
+          window.location.assign(href);
+        }
+      }
+
+      return;
+    }
 
     startTransition(() => {
       openContactNotice({

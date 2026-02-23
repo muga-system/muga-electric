@@ -19,6 +19,19 @@ pnpm lint
 pnpm typecheck
 ```
 
+## Variables de entorno
+
+Usá `.env.local` para definir el modo del sitio:
+
+```bash
+NEXT_PUBLIC_SITE_MODE=demo # demo | preview | production
+NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
+```
+
+- `demo`: mantiene los modales de aviso y bloquea indexación (`noindex` + `robots`).
+- `preview`: desactiva modales demo y bloquea indexación.
+- `production`: desactiva modales demo y habilita indexación/sitemap.
+
 ## Documentación
 
 - Arquitectura: `docs/ARCHITECTURE.md`

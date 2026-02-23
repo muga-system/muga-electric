@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     telephone: false
   },
   robots: {
-    index: !siteConfig.isDemoSite,
-    follow: !siteConfig.isDemoSite
+    index: siteConfig.isIndexable,
+    follow: siteConfig.isIndexable
   },
   category: "business"
 };

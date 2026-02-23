@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  if (siteConfig.isDemoSite) {
+  if (!siteConfig.isIndexable) {
     return [];
   }
 

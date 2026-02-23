@@ -1,12 +1,31 @@
+const DEFAULT_SITE_URL = "https://muga-electric-demo.example.com";
+
+type SiteMode = "demo" | "preview" | "production";
+
+function getSiteMode(): SiteMode {
+  const rawValue = process.env.NEXT_PUBLIC_SITE_MODE?.trim().toLowerCase();
+
+  if (rawValue === "production" || rawValue === "preview" || rawValue === "demo") {
+    return rawValue;
+  }
+
+  return "demo";
+}
+
+const siteMode = getSiteMode();
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;
+
 export const siteConfig = {
-  isDemoSite: true,
+  siteMode,
+  isDemoSite: siteMode === "demo",
+  isIndexable: siteMode === "production",
   brand: "EVF",
   siteName: "MUGA Electric Demo",
   role: "Electricista matriculado",
   title: "EVF | Electricista matriculado",
   description:
     "Instalaciones eléctricas seguras en Buenos Aires. Atención rápida para hogares, comercios y consorcios.",
-  siteUrl: "https://muga-electric-demo.example.com",
+  siteUrl,
   ogImagePath: "/og-image.svg",
   serviceArea: "CABA y GBA",
   locality: "Buenos Aires",
