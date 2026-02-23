@@ -10,7 +10,7 @@ import { MugaSystemSection } from "@/components/sections/muga-system-section";
 export default function HomePage() {
   return (
     <ContactNoticeProvider>
-      <div className="min-h-screen bg-surface text-foreground">
+      <div id="top" className="min-h-screen bg-surface text-foreground">
         <SiteHeader />
 
         <main className="relative">

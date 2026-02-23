@@ -87,7 +87,7 @@ export function SiteHeader() {
       <Container className="py-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/#hero"
             className="block-panel inline-flex min-w-[4.5rem] items-center justify-center px-4 py-2 text-lg font-black uppercase tracking-[0.08em] text-foreground sm:text-xl"
           >
             {siteConfig.brand}

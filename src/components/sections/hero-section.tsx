@@ -5,7 +5,7 @@ import { Pill } from "@/components/ui/pill";
 
 export function HeroSection() {
   return (
-    <section className="bg-surface py-16 sm:py-20">
+    <section id="hero" className="bg-surface py-16 sm:py-20">
       <Container>
         <div className="block-panel [--hatch-offset:12px] p-6 sm:p-8">
           <Pill>Servicio eléctrico</Pill>

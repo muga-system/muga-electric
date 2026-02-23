@@ -33,5 +33,10 @@ export const siteConfig = {
   phoneHref: "tel:+541155551234",
   whatsappHref: "https://wa.me/541155551234?text=Hola%2C%20necesito%20un%20servicio%20el%C3%A9ctrico",
   ctaPrimary: "Llamar ahora",
-  ctaSecondary: "Ver servicios"
+  ctaSecondary: "Ver servicios",
+  footerVersion: "v1.0.0",
+  mugaWebsiteUrl: "https://muga.dev",
+  mugaGithubUrl: "https://github.com/muga-system",
+  socialInstagramUrl: "https://instagram.com/muga.dev",
+  socialFacebookUrl: "https://facebook.com/muga.dev"
 } as const;
