@@ -5,8 +5,6 @@ import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function BenefitsSection() {
-  const icons = ["market", "bolt", "trend"] as const;
-
   return (
     <section id="propuesta" className="py-16 sm:py-20">
       <Container>
@@ -18,7 +16,7 @@ export function BenefitsSection() {
               <span className="absolute -right-2 -top-2 border-2 border-foreground bg-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.08em] text-foreground">
                 0{index + 1}
               </span>
-              <IconBadge name={icons[index]} />
+              <IconBadge name={benefit.icon} />
               <p className="mt-4 text-xs font-black uppercase tracking-[0.08em] text-muted">
                 {benefit.kicker}
               </p>

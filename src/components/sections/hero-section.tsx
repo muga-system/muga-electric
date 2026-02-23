@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site";
+import { ContactActionTrigger } from "@/components/contact/contact-action-trigger";
 import { Container } from "@/components/ui/container";
 import { Pill } from "@/components/ui/pill";
 
@@ -18,9 +19,9 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={siteConfig.phoneHref} className="btn-primary text-base">
+            <ContactActionTrigger channel="call" href={siteConfig.phoneHref} className="btn-primary text-base">
               {siteConfig.ctaPrimary}
-            </a>
+            </ContactActionTrigger>
             <a href="#propuesta" className="btn-secondary">
               Ver servicios
             </a>

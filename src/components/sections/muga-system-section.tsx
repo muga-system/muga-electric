@@ -5,18 +5,16 @@ import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function MugaSystemSection() {
-  const icons = ["target", "user", "bolt", "automation"] as const;
-
   return (
     <section id="muga" className="py-16 sm:py-20">
       <Container>
         <SectionHeading title="Por qué elegir este servicio" subtitle="Garantías" />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {mugaStages.map((stage, index) => (
+          {mugaStages.map((stage) => (
             <GlassPanel key={stage.id} className="p-6">
               <div className="flex items-center justify-between gap-3">
-                <IconBadge name={icons[index]} />
+                <IconBadge name={stage.icon} />
                 <span className="border-2 border-foreground bg-accent px-2 py-1 text-sm font-black uppercase tracking-[0.08em] text-foreground">
                   {stage.id}
                 </span>

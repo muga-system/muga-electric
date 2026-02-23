@@ -1,3 +1,4 @@
+import { ContactActionTrigger } from "@/components/contact/contact-action-trigger";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { navLinks } from "@/content/business-content";
@@ -35,10 +36,16 @@ export function SiteFooter() {
 
           <div className="mt-6 border-t-2 border-foreground pt-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <a href={siteConfig.phoneHref} className="text-sm font-black uppercase tracking-[0.06em] text-foreground">
+              <ContactActionTrigger
+                channel="call"
+                href={siteConfig.phoneHref}
+                className="text-sm font-black uppercase tracking-[0.06em] text-foreground"
+              >
                 {siteConfig.phoneDisplay}
-              </a>
-              <p className="text-xs text-muted">© {new Date().getFullYear()} {siteConfig.brand}. Todos los derechos reservados.</p>
+              </ContactActionTrigger>
+              <p className="text-xs text-muted">
+                © {siteConfig.brand}. Todos los derechos reservados.
+              </p>
             </div>
             <p className="mt-3 text-[10px] font-black uppercase tracking-[0.08em] text-muted">
               Servicio eléctrico profesional en CABA y GBA

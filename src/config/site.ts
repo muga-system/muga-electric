@@ -1,9 +1,13 @@
 export const siteConfig = {
+  isDemoSite: true,
   brand: "EVF",
+  siteName: "MUGA Electric Demo",
   role: "Electricista matriculado",
   title: "EVF | Electricista matriculado",
   description:
     "Instalaciones eléctricas seguras en Buenos Aires. Atención rápida para hogares, comercios y consorcios.",
+  siteUrl: "https://muga-electric-demo.example.com",
+  ogImagePath: "/og-image.svg",
   serviceArea: "CABA y GBA",
   locality: "Buenos Aires",
   country: "AR",

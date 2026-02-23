@@ -4,7 +4,7 @@ Landing profesional para servicio eléctrico en CABA y GBA.
 
 ## Stack
 
-- Next.js 15 (App Router)
+- Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS
 - ESLint

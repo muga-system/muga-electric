@@ -1,13 +1,14 @@
 import { siteConfig } from "@/config/site";
+import { ContactActionTrigger } from "@/components/contact/contact-action-trigger";
 import { Container } from "@/components/ui/container";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function CtaSection() {
   const quickItems = [
-    "Instalaciones seguras",
-    "Emergencias 24/7",
-    "Presupuesto claro"
+    { label: "Instalaciones seguras", icon: "target" as const },
+    { label: "Emergencias 24/7", icon: "bolt" as const },
+    { label: "Presupuesto claro", icon: "automation" as const }
   ] as const;
 
   return (
@@ -26,9 +27,13 @@ export function CtaSection() {
               </p>
 
               <div className="mt-8">
-                <a href={siteConfig.phoneHref} className="btn-primary w-full text-base sm:w-auto sm:px-10 sm:py-4">
+                <ContactActionTrigger
+                  channel="call"
+                  href={siteConfig.phoneHref}
+                  className="btn-primary w-full text-base sm:w-auto sm:px-10 sm:py-4"
+                >
                   {siteConfig.ctaPrimary}
-                </a>
+                </ContactActionTrigger>
               </div>
 
               <p className="mt-5 border-l-4 border-accent pl-3 text-sm font-black uppercase tracking-[0.06em] text-foreground">
@@ -42,13 +47,10 @@ export function CtaSection() {
               </span>
 
               <div className="mt-4 space-y-3">
-                {quickItems.map((item, index) => (
-                  <article key={item} className="flex items-center gap-3 border-2 border-foreground bg-card p-3">
-                    <IconBadge
-                      name={index === 0 ? "target" : index === 1 ? "bolt" : "automation"}
-                      className="h-9 w-9 border-2 border-foreground bg-accent text-foreground"
-                    />
-                    <p className="text-sm font-semibold uppercase tracking-[0.05em] text-foreground">{item}</p>
+                {quickItems.map((item) => (
+                  <article key={item.label} className="flex items-center gap-3 border-2 border-foreground bg-card p-3">
+                    <IconBadge name={item.icon} className="h-9 w-9 border-2 border-foreground bg-accent text-foreground" />
+                    <p className="text-sm font-semibold uppercase tracking-[0.05em] text-foreground">{item.label}</p>
                   </article>
                 ))}
               </div>

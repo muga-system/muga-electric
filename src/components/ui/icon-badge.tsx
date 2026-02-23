@@ -2,16 +2,15 @@ import type { LucideIcon } from "lucide-react";
 import { Settings, ShoppingBag, Target, TrendingUp, User, Zap } from "lucide-react";
 
 import { cn } from "@/lib/cn";
-
-type IconName = "target" | "bolt" | "trend" | "market" | "user" | "automation";
+import type { BusinessIconName } from "@/types/business";
 
 type IconBadgeProps = {
-  name: IconName;
+  name: BusinessIconName;
   className?: string;
 };
 
 export function IconBadge({ name, className }: IconBadgeProps) {
-  const icons: Record<IconName, LucideIcon> = {
+  const icons: Record<BusinessIconName, LucideIcon> = {
     target: Target,
     bolt: Zap,
     trend: TrendingUp,
