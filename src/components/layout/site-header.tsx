@@ -1,5 +1,6 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -7,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import { ContactActionTrigger } from "@/components/contact/contact-action-trigger";
 import { navLinks } from "@/content/business-content";
 import { siteConfig } from "@/config/site";
+import { scrollToElementById } from "@/lib/scroll-to-element";
 import { lockPageScroll } from "@/lib/scroll-lock";
 import { Container } from "@/components/ui/container";
 
@@ -14,6 +16,20 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuPanelRef = useRef<HTMLElement>(null);
   const menuToggleRef = useRef<HTMLButtonElement>(null);
+
+  const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window === "undefined" || window.location.pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+
+    const didScroll = scrollToElementById("hero");
+
+    if (didScroll) {
+      window.history.replaceState(null, "", "/#hero");
+    }
+  };
 
   const handleMenuKeyDown = useEffectEvent((event: KeyboardEvent) => {
     if (!menuOpen || !menuPanelRef.current) {
@@ -88,6 +104,7 @@ export function SiteHeader() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/#hero"
+            onClick={handleBrandClick}
             className="block-panel inline-flex min-w-[4.5rem] items-center justify-center px-4 py-2 text-lg font-black uppercase tracking-[0.08em] text-foreground sm:text-xl"
           >
             {siteConfig.brand}

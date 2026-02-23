@@ -2,6 +2,7 @@ import { ArrowUp, Facebook, Instagram } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
+import { ScrollToAnchorButton } from "@/components/ui/scroll-to-anchor-button";
 import { navLinks } from "@/content/business-content";
 
 export function SiteFooter() {
@@ -38,13 +39,13 @@ export function SiteFooter() {
               >
                 <Facebook className="h-6 w-6" aria-hidden />
               </a>
-              <a
-                href="#top"
+              <ScrollToAnchorButton
+                targetId="hero"
                 aria-label="Volver arriba"
                 className="inline-flex h-14 w-14 items-center justify-center border border-foreground bg-card text-foreground transition hover:bg-accent"
               >
                 <ArrowUp className="h-6 w-6" aria-hidden />
-              </a>
+              </ScrollToAnchorButton>
             </div>
 
             <nav className="flex flex-wrap gap-2.5 sm:gap-3">
